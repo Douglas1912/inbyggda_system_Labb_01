@@ -19,9 +19,10 @@ int main () {
     
     while(1){
         
-        uart_putstr(str);
-    //uart_putchar(d);
-    _delay_ms(2000); 
+        //uart_putstr(str);
+    	//uart_putchar(d);
+    	uart_echo();
+    	//_delay_ms(2000); 
    }
    
    return 0;

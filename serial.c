@@ -12,8 +12,7 @@ void uart_init(unsigned int ubrr){
     //Enable receiver and transmitter */
     UCSR0B = (1<<RXEN0)|(1<<TXEN0);
     
-    // Set frame format to 8 data bits, no parity, 1 stop bit
-    UCSR0C |= (1<<UCSZ01)|(1<<UCSZ00);
+    UCSR0C = ((0<<USBS0)|(1 << UCSZ01)|(1<<UCSZ00));   // Set frame format: 8data, 1 stop bit.
 
 }
 
@@ -48,5 +47,18 @@ char uart_getchar(void){
 
 }
 
-void uart_echo(void){}
+void uart_echo(void){
+
+    char c;
+    
+while(1){
+
+    c = uart_getchar();
+    uart_putchar('[');
+    uart_putchar(c);
+    uart_putchar(']');
+
+
+}
+}
 
