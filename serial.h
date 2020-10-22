@@ -9,6 +9,8 @@ void uart_putstr(const char *str);
 char uart_getchar(void);
 
 void uart_echo(void);
+void uart_led();
+void ledOnOff(void);
 
 #endif
 
